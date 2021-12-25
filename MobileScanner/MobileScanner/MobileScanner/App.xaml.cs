@@ -1,4 +1,5 @@
-﻿using MobileScanner.ViewModels;
+﻿using MobileScanner.Services;
+using MobileScanner.ViewModels;
 using MobileScanner.Views;
 using System;
 using Xamarin.Forms;
@@ -20,6 +21,8 @@ namespace MobileScanner
         private void SetupServices()
         {
             DependencyService.Register<MainViewModel>();
+            DependencyService.Register<IBackgroundServicesManagerService, BackgroundServicesManagerService>();
+            DependencyService.Register<IScannerService, ScannerService>();
         }
 
         protected override void OnStart()

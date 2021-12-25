@@ -4,6 +4,11 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Xamarin.Forms;
+using MobileScanner.Droid.BackgroundServices;
+using Android.Content;
+using MobileScanner.Services;
+using MobileScanner.BackgroundServices;
 
 namespace MobileScanner.Droid
 {
@@ -17,6 +22,16 @@ namespace MobileScanner.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            //Registers starting and stopping background service(s).
+            MessagingCenter.Unsubscribe<BackgroundServicesManagerService, string>(this, BackgroundServiceList.SCANNER_SERVICE);
+            MessagingCenter.Subscribe<BackgroundServicesManagerService, string>(this, BackgroundServiceList.SCANNER_SERVICE, (sender, value) => 
+            {
+                if (value == ServiceStateEnum.START.ToString("d"))
+                    StartService(new Intent(this, typeof(BackgroundScannerService)));
+                else if(value == ServiceStateEnum.STOP.ToString("d"))
+                    StopService(new Intent(this, typeof(BackgroundScannerService)));
+            });
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
