@@ -3,3 +3,6 @@
 ################################################################################
 
 /MobileScanner/MobileScanner/MobileScanner/bin/Debug/netstandard2.0
+/MobileScanner/MobileScanner/MobileScanner/obj
+/MobileScanner/MobileScanner/MobileScanner.Android/bin/Debug
+/MobileScanner/MobileScanner/MobileScanner.Android/obj
