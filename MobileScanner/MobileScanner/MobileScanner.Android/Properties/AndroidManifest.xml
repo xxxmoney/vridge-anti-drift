@@ -1,6 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.mobilescanner">
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
-    <application android:label="MobileScanner.Android" android:theme="@style/MainTheme"></application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.mobilescanner" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+	<application android:label="MobileScanner.Android" android:theme="@style/MainTheme"></application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+	<uses-permission android:name="android.permission.INSTANT_APP_FOREGROUND_SERVICE" />
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+  <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+  <queries>
+    <!-- Browser -->
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:mimeType="*/*" />
+    </intent>
+    <!-- Camera -->
+    <intent>
+      <action android:name="android.media.action.IMAGE_CAPTURE" />
+    </intent>
+    <!-- Gallery -->
+    <intent>
+      <action android:name="android.intent.action.GET_CONTENT" />
+      <data android:mimeType="image/*" />
+    </intent>
+    <intent>
+      <action android:name="android.intent.action.PICK" />
+      <data android:mimeType="image/*" />
+    </intent>
+    <intent>
+      <action android:name="android.intent.action.CHOOSER" />
+    </intent>
+  </queries>
 </manifest>

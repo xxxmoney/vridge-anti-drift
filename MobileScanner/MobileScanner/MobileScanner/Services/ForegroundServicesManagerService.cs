@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace MobileScanner.Services
 {
-    public interface IBackgroundServicesManagerService
+    public interface IForegroundServicesManagerService
     {
         void StartService(string name);
         void StopService(string name);
     }
-    public class BackgroundServicesManagerService : IBackgroundServicesManagerService
+    public class ForegroundServicesManagerService : IForegroundServicesManagerService
     {
         private void SendMessage(string name, ServiceStateEnum state)
         {

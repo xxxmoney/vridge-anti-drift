@@ -21,12 +21,13 @@ namespace MobileScanner
         private void SetupServices()
         {
             DependencyService.Register<MainViewModel>();
-            DependencyService.Register<IBackgroundServicesManagerService, BackgroundServicesManagerService>();
-            DependencyService.Register<IScannerService, ScannerService>();
+            DependencyService.Register<IForegroundServicesManagerService, ForegroundServicesManagerService>();
+            DependencyService.Register<IPermissionsService, PermissionsService>();
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()

@@ -2,25 +2,49 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:MobileScanner.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="MobileScanner.Views.MainPage"
-             x:DataType="viewmodels:MainViewModel">
+             x:DataType="viewmodels:MainViewModel"
+             BackgroundColor="CornflowerBlue">
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding OnAppearCommand}" />
+    </ContentPage.Behaviors>
     <ContentPage.Content>
-        <FlexLayout
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <zxing:ZXingScannerView
+                Grid.Row="1"
+                IsScanning="True"
+                Result="{Binding Result, Mode=TwoWay}"                
+                ScanResultCommand="{Binding OnScanResultCommand}"                >
+            </zxing:ZXingScannerView>
+            <FlexLayout
+                Grid.Row="2"
                 JustifyContent="Center"
                 Direction="Column"            
-                Padding="30"
-                BackgroundColor="CornflowerBlue">
-            <Button 
+                Padding="30">
+                <Button 
                     Text="START"
                     BackgroundColor="Blue"
                     Command="{Binding StartServiceCommand}">
-            </Button>
-            <Button 
+                </Button>
+                <Button 
                     Text="STOP"
                     BackgroundColor="Red"
                     Margin="0,20,0,0"
                     Command="{Binding StopServiceCommand}">
-            </Button>
-        </FlexLayout>
+                </Button>
+            </FlexLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

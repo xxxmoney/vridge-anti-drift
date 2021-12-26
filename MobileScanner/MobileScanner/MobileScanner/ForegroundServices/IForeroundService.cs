@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MobileScanner.BackgroundServices
+namespace MobileScanner.ForegroundServices
 {
-    public interface IBackgroundService
+    public interface IForeroundService
     {
     }
 }
