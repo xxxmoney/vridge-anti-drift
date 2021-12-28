@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleWebServer", "..\ConsoleWebServer\ConsoleWebServer.csproj", "{273FA4FC-73D8-46BC-9F09-1BFEB09088A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{C1580F4A-6722-43FC-8903-6CB7A0930D6C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{C1580F4A-6722-43FC-8903-6CB7A0930D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1580F4A-6722-43FC-8903-6CB7A0930D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{273FA4FC-73D8-46BC-9F09-1BFEB09088A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273FA4FC-73D8-46BC-9F09-1BFEB09088A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273FA4FC-73D8-46BC-9F09-1BFEB09088A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273FA4FC-73D8-46BC-9F09-1BFEB09088A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

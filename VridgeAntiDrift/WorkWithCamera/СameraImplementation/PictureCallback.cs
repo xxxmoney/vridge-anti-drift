@@ -4,7 +4,7 @@ using Android.Icu.Text;
 using Java.Util;
 using System;
 using Android.Util;
-using Task2.BarcodeReader;
+using Task2.WebClient;
 
 namespace Task2
 {    
@@ -21,11 +21,8 @@ namespace Task2
         {
             try 
             {
-                ZXing.Result result = QrCodeReader.GetInstance().ScanImage(data);
-                if (result != null)
-                {
-                    
-                }
+                string base64 = Convert.ToBase64String(data);
+                RestSharp.IRestResponse result = QrWebRequestor.GetInstance().PostQrBase64(base64);
             }
             catch (Exception e)
             {

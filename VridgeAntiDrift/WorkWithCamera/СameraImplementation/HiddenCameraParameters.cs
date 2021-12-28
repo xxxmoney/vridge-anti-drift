@@ -12,7 +12,8 @@ namespace Task2
         partial void ModifyParameters(Parameters oldParameters)
         {
             SetMinPreviewSize(oldParameters);
-            SetMaxPictureSize(oldParameters);
+            SetMinPictureSize(oldParameters);
+            //SetMaxPictureSize(oldParameters);
             SetFlashModeOff(oldParameters);
             SetFocusModeAuto(oldParameters);
             SetSceneModeAuto(oldParameters);
@@ -29,13 +30,19 @@ namespace Task2
                                     .ToArray();
             return orderByDescending[0];
         }
-
         private Size FindMinSize(IList<Size> sizes)
         {
             Size[] orderByDescending = sizes
                                     .OrderBy(x => x.Width)
                                     .ToArray();
             return orderByDescending[0];
+        }
+        private Size FindMediumSize(IList<Size> sizes)
+        {
+            Size[] orderByDescending = sizes
+                                    .OrderBy(x => x.Width)
+                                    .ToArray();
+            return orderByDescending[orderByDescending.Length / 2];
         }
 
         private void SetMinPreviewSize(Parameters oldParameters)
@@ -47,6 +54,16 @@ namespace Task2
         private void SetMaxPictureSize(Parameters oldParameters)
         {
             Size size = FindMaxSize(oldParameters.SupportedPictureSizes);
+            oldParameters.SetPictureSize(size.Width, size.Height);
+        }
+        private void SetMinPictureSize(Parameters oldParameters)
+        {
+            Size size = FindMinSize(oldParameters.SupportedPictureSizes);
+            oldParameters.SetPictureSize(size.Width, size.Height);
+        }
+        private void SetMediumPrictureSize(Parameters oldParameters)
+        {
+            Size size = FindMediumSize(oldParameters.SupportedPictureSizes);
             oldParameters.SetPictureSize(size.Width, size.Height);
         }
 
