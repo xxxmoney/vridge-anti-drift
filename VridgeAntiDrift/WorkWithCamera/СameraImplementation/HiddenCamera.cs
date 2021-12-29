@@ -10,7 +10,7 @@ namespace Task2
     public partial class HiddenCamera
     {
         const int SURFACE_TEXTURE_NAME = 10;
-        const int JPEG_MAX_QUALITY = 70;
+        const int JPEG_MAX_QUALITY = 80;
 
         Camera _camera;
         CameraInfo _cameraInfo;

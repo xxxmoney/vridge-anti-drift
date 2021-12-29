@@ -1,0 +1,10 @@
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\bin\Release\netstandard2.0\VRE.Vridge.API.Client.deps.json
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\bin\Release\netstandard2.0\VRE.Vridge.API.Client.dll
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\bin\Release\netstandard2.0\VRE.Vridge.API.Client.pdb
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.csproj.AssemblyReference.cache
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.AssemblyInfoInputs.cache
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.AssemblyInfo.cs
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.csproj.CoreCompileInputs.cache
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.dll
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Release\netstandard2.0\VRE.Vridge.API.Client.pdb
