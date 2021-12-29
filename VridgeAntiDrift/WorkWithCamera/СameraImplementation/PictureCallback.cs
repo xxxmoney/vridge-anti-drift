@@ -21,9 +21,11 @@ namespace Task2
         {
             try 
             {
+                string base64 = Convert.ToBase64String(data);
+
                 RestSharp.IRestResponse result = QrWebRequestor
                     .GetInstance()
-                    .RecenterQrBase64(Convert.ToBase64String(data));
+                    .RecenterQrBase64(base64);
             }
             catch (Exception e)
             {
