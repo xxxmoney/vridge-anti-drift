@@ -15,10 +15,10 @@ namespace ConsoleWebServer.Controllers
     [Route("Qr")]
     public class QrController : Controller
     {
-        private readonly IQrCodeReader qrCodeReader;
-        public QrController(IQrCodeReader qrCodeReader)
+        private readonly IQrCodeReaderService qrCodeReaderService;
+        public QrController(IQrCodeReaderService qrCodeReaderService)
         {
-            this.qrCodeReader = qrCodeReader;
+            this.qrCodeReaderService = qrCodeReaderService;
         }
 
         [DisableRequestSizeLimit]
@@ -26,7 +26,7 @@ namespace ConsoleWebServer.Controllers
         [HttpPost]
         public IActionResult DecodeBuffer([FromBody] BufferDto buffer)
         {
-            var result = this.qrCodeReader.DecodeQrBuffer(buffer.Buffer);
+            var result = this.qrCodeReaderService.DecodeQrBuffer(buffer.Buffer);
 
             return Ok(result);
         }
@@ -34,11 +34,12 @@ namespace ConsoleWebServer.Controllers
         [DisableRequestSizeLimit]
         [Route(nameof(DecodeBase64))]
         [HttpPost]
-        public IActionResult DecodeBase64([FromBody] string base64)
+        public IActionResult DecodeBase64([FromBody] Base64Dto base64)
         {
-            var result = this.qrCodeReader.DecodeQrBase64(base64);
+            var result = this.qrCodeReaderService.DecodeQrBase64(base64.Base64);
 
             return Ok(result);
         }
+
     }
 }

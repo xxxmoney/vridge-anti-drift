@@ -12,8 +12,9 @@ namespace Task2
         partial void ModifyParameters(Parameters oldParameters)
         {
             SetMinPreviewSize(oldParameters);
-            SetMinPictureSize(oldParameters);
+            //SetMinPictureSize(oldParameters);
             //SetMaxPictureSize(oldParameters);
+            SetMediumPrictureSize(oldParameters);
             SetFlashModeOff(oldParameters);
             SetFocusModeAuto(oldParameters);
             SetSceneModeAuto(oldParameters);
@@ -32,17 +33,17 @@ namespace Task2
         }
         private Size FindMinSize(IList<Size> sizes)
         {
-            Size[] orderByDescending = sizes
+            Size[] orderByAscending = sizes
                                     .OrderBy(x => x.Width)
                                     .ToArray();
-            return orderByDescending[0];
+            return orderByAscending[0];
         }
         private Size FindMediumSize(IList<Size> sizes)
         {
-            Size[] orderByDescending = sizes
+            Size[] orderByAscending = sizes
                                     .OrderBy(x => x.Width)
                                     .ToArray();
-            return orderByDescending[orderByDescending.Length / 2];
+            return orderByAscending[orderByAscending.Length / 2];
         }
 
         private void SetMinPreviewSize(Parameters oldParameters)

@@ -10,15 +10,15 @@ using ZXing.QrCode;
 
 namespace ConsoleWebServer.Services
 {
-    public interface IQrCodeReader
+    public interface IQrCodeReaderService
     {
         Result DecodeQrBuffer(byte[] buffer);
         Result DecodeQrBase64(string base64);
     }
-    public class QrCodeReader : IQrCodeReader
+    public class QrCodeReaderService : IQrCodeReaderService
     {
         private readonly QRCodeReader reader;
-        public QrCodeReader()
+        public QrCodeReaderService()
         {
             this.reader = new QRCodeReader();
         }

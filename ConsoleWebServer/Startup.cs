@@ -33,7 +33,8 @@ namespace ConsoleWebServer
             });
 
             //My services.
-            services.AddSingleton<IQrCodeReader, QrCodeReader>();
+            services.AddSingleton<IQrCodeReaderService, QrCodeReaderService>();
+            services.AddSingleton<IVridgeService, VridgeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

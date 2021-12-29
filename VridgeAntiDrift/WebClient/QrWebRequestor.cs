@@ -16,7 +16,7 @@ namespace Task2.WebClient
     {
         private static QrWebRequestor instance;
 
-        private const string BASE_URL = "http://192.168.163.235:666";
+        private const string BASE_URL = "http://10.0.0.3:666";
         private readonly RestClient client;
         public QrWebRequestor()
         {
@@ -40,16 +40,23 @@ namespace Task2.WebClient
         public IRestResponse PostQrBase64(string base64)
         {
             IRestRequest request = new RestRequest("Qr/DecodeBase64")
-                .AddBody(base64, "text/plain");
+                .AddJsonBody(new { Base64 = base64 });
 
-            var result = this.client.Post(request);
-            return result;
+            return this.client.Post(request);
         }
 
         public IRestResponse PostImageBuffer(byte[] buffer)
         {
             IRestRequest request = new RestRequest("Image/DecodeBufferToBase64")
                 .AddJsonBody(new { Buffer = buffer });
+
+            return this.client.Post(request);
+        }
+
+        public IRestResponse RecenterQrBase64(string base64)
+        {
+            IRestRequest request = new RestRequest("Vridge/RecenterQrBase64")
+                .AddJsonBody(new { Base64 = base64 });
 
             return this.client.Post(request);
         }

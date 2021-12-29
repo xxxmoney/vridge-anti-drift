@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <PackageReference Include="ZXing.Net" Version="0.16.7" />
+    <PackageReference Include="ZXing.Net.Bindings.ZKWeb.System.Drawing" Version="0.16.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ZXing.Net" Version="0.16.7" />
-    <PackageReference Include="ZXing.Net.Bindings.ZKWeb.System.Drawing" Version="0.16.6" />
+    <ProjectReference Include="..\VridgeAPI\VRE.Vridge.API.Client\VRE.Vridge.API.Client.csproj" />
   </ItemGroup>
 
 </Project>
