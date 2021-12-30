@@ -10,7 +10,7 @@
 		public const string CAMERA_TAG = "MY_CAMERA";
 		public const int SERVICE_RUNNING_NOTIFICATION_ID = 10000;
 
-		public const int TASK_INTERVAL = 2;
-		public const Period TASK_PERIOD = Period.InSeconds;
+		public const int TASK_INTERVAL = 1;
+		public const Period TASK_PERIOD = Period.InMiliseconds;
 	}
 }

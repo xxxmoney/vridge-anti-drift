@@ -10,13 +10,15 @@ namespace Task2
     public partial class HiddenCamera
     {
         const int SURFACE_TEXTURE_NAME = 10;
-        const int JPEG_MAX_QUALITY = 80;
+        const int JPEG_MAX_QUALITY = 100;
 
         Camera _camera;
         CameraInfo _cameraInfo;
         CameraFacing _currentCameraFacing;
         Camera.IShutterCallback _shutterCallback;
         Camera.IPictureCallback _rawPictureCallback;
+
+        public PictureCallback PictureCallback;
 
         private bool CameraIsOpen
         {
@@ -28,6 +30,7 @@ namespace Task2
             _cameraInfo = new CameraInfo(cameraManager);
             _shutterCallback = null;
             _rawPictureCallback = null;
+            this.PictureCallback = new PictureCallback();
         }
         
         private int GetBackCameraId()
@@ -66,7 +69,7 @@ namespace Task2
                 _camera = null;
             }
         }
-       
+        
         private void SafeCameraOpen(int id)
         {
             try
@@ -106,10 +109,14 @@ namespace Task2
         }
 
         private void TakePicture(int cameraId)
-            => _camera.TakePicture(
-                    _shutterCallback, 
-                    _rawPictureCallback, 
-                    new PictureCallback(cameraId));
+        {
+            this.PictureCallback.CameraId = cameraId;
+
+            _camera.TakePicture(
+                    _shutterCallback,
+                    _rawPictureCallback,
+                    this.PictureCallback);
+        }
 
         partial void ModifyParameters(Camera.Parameters oldParameters);
     }

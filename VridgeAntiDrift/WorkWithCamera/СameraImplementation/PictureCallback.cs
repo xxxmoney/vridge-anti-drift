@@ -8,13 +8,13 @@ using Task2.WebClient;
 
 namespace Task2
 {    
-    class PictureCallback : Java.Lang.Object, Camera.IPictureCallback
+    public class PictureCallback : Java.Lang.Object, Camera.IPictureCallback
     {
-        private int _cameraID;
+        public int CameraId;
+        public event Action OnFinished;
 
-        public PictureCallback(int cameraID)
+        public PictureCallback()
         {
-            _cameraID = cameraID;
         }
         
         public void OnPictureTaken(byte[] data, Camera camera)
@@ -25,11 +25,15 @@ namespace Task2
 
                 RestSharp.IRestResponse result = QrWebRequestor
                     .GetInstance()
-                    .RecenterQrBase64(base64);
+                    .RecenterQrBase64(base64);                
             }
             catch (Exception e)
             {
                 _ = e.StackTrace;
+            }
+            finally
+            {
+                this.OnFinished();
             }
         }
         

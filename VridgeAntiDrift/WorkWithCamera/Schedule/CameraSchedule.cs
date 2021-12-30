@@ -1,23 +1,23 @@
 ﻿using Android.Hardware.Camera2;
+using System.Timers;
 
 namespace Task2
 {
-    class CameraSchedule
+    public class CameraSchedule
     {
         const int SECONDS_TO_MILLISECONDS = 1000;
         const int MINUTES_TO_MILLISECONDS = 60000;
         const int HOURS_TO_MILLISECONDS = 3600000;
         const int EVERY_MINUTE = 60000;
-        const long DELAY = 0;
 
+        private Timer timer;
         HiddenCamera _hiddenCamera;
-        UpdateTimeTask _timeTask;
         long _periodInMilliseconds;
 
-        public CameraSchedule(CameraManager cameraManager, int period = 5, Period photographingPeriod = Period.InSeconds)
+        public CameraSchedule(CameraManager cameraManager, int period, Period photographingPeriod)
         {
             _hiddenCamera = new HiddenCamera(cameraManager);
-            _timeTask = new UpdateTimeTask(_hiddenCamera);
+            this._hiddenCamera.PictureCallback.OnFinished += () => this.timer.Start();
             _periodInMilliseconds = ConvertToMilliseconds(period, photographingPeriod);
         }
 
@@ -25,6 +25,7 @@ namespace Task2
         {
             return photographingPeriod switch
             {
+                Period.InMiliseconds => period,
                 Period.InSeconds => period * SECONDS_TO_MILLISECONDS,
                 Period.InMinutes => period * MINUTES_TO_MILLISECONDS,
                 Period.InHours => period * HOURS_TO_MILLISECONDS,
@@ -34,11 +35,23 @@ namespace Task2
 
         public void StartTimerPhotography()
         {
-            var timer = new Java.Util.Timer();
-            timer.Schedule(_timeTask, DELAY, _periodInMilliseconds);
+            this.timer = new Timer(this._periodInMilliseconds);
+            this.timer.Elapsed += Timer_Elapsed;
+            this.timer.AutoReset = false;
+            this.timer.Start();            
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            this.timer.Stop();
+            
+            this._hiddenCamera.TakePhoto();
         }
 
         public void Stop()
-            => _timeTask.Stop();
+        {
+            this.timer.Close();
+            _hiddenCamera.StopPreviewAndFreeCamera();
+        }
     }
 }

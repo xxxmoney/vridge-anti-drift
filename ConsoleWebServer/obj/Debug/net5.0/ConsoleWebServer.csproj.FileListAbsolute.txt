@@ -36,4 +36,3 @@ C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\ConsoleWebServer\bin\
 C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\ConsoleWebServer\bin\Debug\net5.0\runtimes\win7\lib\netstandard2.0\System.Private.ServiceModel.dll
 C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\ConsoleWebServer\bin\Debug\net5.0\VRE.Vridge.API.Client.dll
 C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\ConsoleWebServer\bin\Debug\net5.0\VRE.Vridge.API.Client.pdb
-C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\ConsoleWebServer\bin\Debug\net5.0\web.config

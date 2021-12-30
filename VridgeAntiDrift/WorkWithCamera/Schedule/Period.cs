@@ -2,6 +2,7 @@
 {
     public enum Period
     {
+        InMiliseconds,
         InSeconds,
         InMinutes,
         InHours

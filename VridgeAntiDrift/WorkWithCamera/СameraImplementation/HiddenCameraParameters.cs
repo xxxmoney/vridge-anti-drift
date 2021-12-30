@@ -12,9 +12,7 @@ namespace Task2
         partial void ModifyParameters(Parameters oldParameters)
         {
             SetMinPreviewSize(oldParameters);
-            //SetMinPictureSize(oldParameters);
-            //SetMaxPictureSize(oldParameters);
-            SetMediumPrictureSize(oldParameters);
+            SetSmallerPictureSize(oldParameters);
             SetFlashModeOff(oldParameters);
             SetFocusModeAuto(oldParameters);
             SetSceneModeAuto(oldParameters);
@@ -45,6 +43,13 @@ namespace Task2
                                     .ToArray();
             return orderByAscending[orderByAscending.Length / 2];
         }
+        private Size FindSmallerSize(IList<Size> sizes)
+        {
+            Size[] orderByAscending = sizes
+                                    .OrderBy(x => x.Width)
+                                    .ToArray();
+            return orderByAscending[orderByAscending.Length / 6];
+        }
 
         private void SetMinPreviewSize(Parameters oldParameters)
         {
@@ -62,9 +67,14 @@ namespace Task2
             Size size = FindMinSize(oldParameters.SupportedPictureSizes);
             oldParameters.SetPictureSize(size.Width, size.Height);
         }
-        private void SetMediumPrictureSize(Parameters oldParameters)
+        private void SetMediumPictureSize(Parameters oldParameters)
         {
             Size size = FindMediumSize(oldParameters.SupportedPictureSizes);
+            oldParameters.SetPictureSize(size.Width, size.Height);
+        }
+        private void SetSmallerPictureSize(Parameters oldParameters)
+        {
+            Size size = FindSmallerSize(oldParameters.SupportedPictureSizes);
             oldParameters.SetPictureSize(size.Width, size.Height);
         }
 
@@ -126,15 +136,7 @@ namespace Task2
 
         private void SetRotation(Parameters oldParameters)
         {
-            switch(_currentCameraFacing)
-            {
-                case CameraFacing.Back:
-                    oldParameters.SetRotation(90);
-                    break;
-                case CameraFacing.Front:
-                    oldParameters.SetRotation(270);
-                    break;
-            }
+            oldParameters.SetRotation(0);
         }
     }
 }
