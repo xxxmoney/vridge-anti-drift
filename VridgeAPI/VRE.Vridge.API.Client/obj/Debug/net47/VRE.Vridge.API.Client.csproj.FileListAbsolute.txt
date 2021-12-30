@@ -12,3 +12,4 @@ C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.
 C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Debug\net47\VRE.Vridge.API.Client.csproj.CopyComplete
 C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Debug\net47\VRE.Vridge.API.Client.dll
 C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Debug\net47\VRE.Vridge.API.Client.pdb
+C:\Users\SuperUser\source\repos\xxxmoney\vridge-anti-drift\VridgeAPI\VRE.Vridge.API.Client\obj\Debug\net47\VRE.Vridge.API.Client.csproj.AssemblyReference.cache
