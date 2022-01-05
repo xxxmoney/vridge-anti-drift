@@ -16,7 +16,7 @@ namespace Task2.WebClient
     {
         private static QrWebRequestor instance;
 
-        private const string BASE_URL = "http://10.0.0.3:666";
+        private const string BASE_URL = "http://192.168.1.107:666";
         private readonly RestClient client;
         public QrWebRequestor()
         {

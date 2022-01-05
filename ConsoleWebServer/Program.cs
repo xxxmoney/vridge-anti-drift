@@ -21,7 +21,7 @@ namespace ConsoleWebServer
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://10.0.0.3:666");
+                    webBuilder.UseUrls("http://192.168.1.107:666");
                 });
     }
 }
