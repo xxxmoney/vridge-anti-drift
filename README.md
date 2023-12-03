@@ -5,7 +5,8 @@ It consists of:
  - Mobile application
  - Web Application
 
-#How it works:
+## How it works
+
 It uses resetting of center position when the mobile phone app sees a QR code on monitor.
 Because of that, you facing the monitor should be the default center position.
 
