@@ -11,7 +11,6 @@ It uses resetting of center position when the mobile phone app sees a QR code on
 Because of that, you facing the monitor should be the default center position.
 
 Steps:
- - Install mobile app and web app on PC.
  - Set QR code on fullscreen on your monitor.
  - Run Vridge, web app and mobile app.
  - Now every time the mobile camera registers the QR code, it should reset to center.
